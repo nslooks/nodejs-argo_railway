@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple English Page</title>
+  <!-- Simple, clean, and responsive design -->
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0b1a2e;
+      line-height: 1.6;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 880px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.15s ease;
+    }
+
+    /* header / nav */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      margin-bottom: 2.8rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b1a2e;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 450;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2f44;
+      font-size: 1.05rem;
+      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
+    }
+
+    /* main heading */
+    .hero {
+      margin-bottom: 2.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      color: #0b1a2e;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #33475b;
+      max-width: 85%;
+    }
+
+    /* cards / content grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 2rem;
+      margin: 2.8rem 0 2.2rem;
+    }
+
+    .card {
+      background: #f9fcff;
+      border-radius: 20px;
+      padding: 1.8rem 1.8rem 2rem;
+      border: 1px solid #eef2f6;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 18px rgba(0, 20, 40, 0.05);
+      transform: translateY(-3px);
+      border-color: #d6e0eb;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      color: #0b1a2e;
+    }
+
+    .card p {
+      color: #2c4058;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .card .btn {
+      display: inline-block;
+      background: #eef3f9;
+      color: #1a2f44;
+      padding: 0.45rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .card .btn:hover {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+
+    .card .btn-outline {
+      background: transparent;
+      border: 1px solid #cbd8e6;
+      color: #1f344b;
+    }
+
+    .card .btn-outline:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: white;
+    }
+
+    /* extra section – quote or highlight */
+    .highlight {
+      background: #f2f6fd;
+      border-radius: 20px;
+      padding: 1.8rem 2.2rem;
+      margin: 2.2rem 0 1.8rem;
+      border-left: 5px solid #2563eb;
+    }
+
+    .highlight p {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #0b1f33;
+    }
+
+    .highlight cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-style: normal;
+      font-weight: 450;
+      color: #3d5775;
+      font-size: 1rem;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e3e9f0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 0.5rem;
+      font-size: 0.95rem;
+      color: #4a637f;
+    }
+
+    .footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin-left: 1.2rem;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer .copy {
+      opacity: 0.75;
+    }
+
+    /* responsive */
+    @media (max-width: 680px) {
+      .page {
+        padding: 1.8rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.75rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.6rem;
+      }
+
+      .footer a {
+        margin-left: 0;
+        margin-right: 1.2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        padding: 1.2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- header / navigation -->
+    <header class="top-bar">
+      <div class="logo"><span>✦</span> Simple</div>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <!-- main hero -->
+    <section class="hero">
+      <h1>Clear. Calm. <br>Simple English.</h1>
+      <p>A clean space for reading, thinking, and focusing on what matters.</p>
+    </section>
+
+    <!-- two columns: content cards -->
+    <div class="content-grid">
+      <article class="card">
+        <h3>☀️ Morning</h3>
+        <p>Start the day with clarity. Short notes, gentle reminders, and a quiet mind.</p>
+        <a href="#" class="btn">Read more</a>
+      </article>
+
+      <article class="card">
+        <h3>🌿 Evening</h3>
+        <p>Wind down with simple words. Reflect, rest, and let the day settle.</p>
+        <a href="#" class="btn btn-outline">Learn more</a>
+      </article>
+
+      <article class="card">
+        <h3>📖 Journal</h3>
+        <p>Capture your thoughts in plain English. No clutter, just honest words.</p>
+        <a href="#" class="btn btn-outline">Start writing</a>
+      </article>
+
+      <article class="card">
+        <h3>✨ Ideas</h3>
+        <p>Light, memorable thoughts. Inspiration without the noise.</p>
+        <a href="#" class="btn">Explore</a>
+      </article>
+    </div>
+
+    <!-- highlight / quote block -->
+    <div class="highlight">
+      <p>“Simplicity is the ultimate sophistication. Clear writing reflects clear thinking.”</p>
+      <cite>— inspired by timeless prose</cite>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="copy">
+        © 2026 Simple English
+      </div>
+      <div>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
